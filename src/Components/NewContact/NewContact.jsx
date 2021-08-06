@@ -1,0 +1,9 @@
+const NewContact = ({ name, number }) => {
+    return (
+        <li>
+            {name}: {number}
+        </li>
+    );
+};
+
+export default NewContact;
