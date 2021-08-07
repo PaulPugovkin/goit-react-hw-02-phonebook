@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './AddForm.module.css';
 
 const initialState = {
     name: '',
@@ -24,10 +25,15 @@ class AddForm extends Component {
     render() {
         const { name, number } = this.state;
         return (
-            <form onSubmit={this.handlerOnSubmit}>
+            <form
+                className={styles['form-wrapper']}
+                onSubmit={this.handlerOnSubmit}
+            >
                 <label>
-                    First name{' '}
+                    <span className={styles['label-text']}>First name:</span>
                     <input
+                        className={styles.input}
+                        placeholder="Ivanov Ivan"
                         type="text"
                         name="name"
                         value={name}
@@ -38,8 +44,10 @@ class AddForm extends Component {
                     />
                 </label>
                 <label>
-                    Phone number
+                    <span className={styles['label-text']}>Phone number:</span>
                     <input
+                        className={styles.input}
+                        placeholder="+7-999-999-99-99"
                         type="tel"
                         name="number"
                         value={number}
@@ -49,7 +57,7 @@ class AddForm extends Component {
                         onChange={this.userInputHandler}
                     />
                 </label>
-                <button type="button" onClick={this.handlerOnSubmit}>
+                <button type="submit" className={styles.button}>
                     Add contact
                 </button>
             </form>
